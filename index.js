@@ -82,8 +82,6 @@ function getName({name}) {
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
 
-// NEED TO FIX THIS!!
-
 function makeSmartPerson(name) {
   let smartPerson = {
     name: name,
@@ -335,6 +333,7 @@ const argTimesTwo = (num) => num * 2; // code here!
  *         (1) causes the odometer in the object to be increased by the distance,
  *         (2) returns the updated value of the `odometer`.
 */
+
 function carMaker(number) {
   function driveDistance(distance) {
     let newOdometer = "";
@@ -345,8 +344,9 @@ function carMaker(number) {
   let carObj = {
     odometer: number,
     drive: function driveDistance(distance) {
-      let newOdometer = "";
-      newOdometer = newOdometer + distance;
+      let newOdometer = number + distance;
+
+      console.log(newOdometer)
       return newOdometer;
     }
   };

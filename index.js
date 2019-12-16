@@ -90,7 +90,9 @@ function makeSmartPerson(name) {
     sum: function sumOfNumbers(num1, num2) {
       return num1 + num2;
     },
-    speak: "Hello, my name is " + name
+    speak: function speakName() {
+      return `Hello, my name is + ${name}`;
+    }
   };
 
   return smartPerson;
@@ -334,14 +336,19 @@ const argTimesTwo = (num) => num * 2; // code here!
  *         (2) returns the updated value of the `odometer`.
 */
 function carMaker(number) {
-  var newOdometer = "";
   function driveDistance(distance) {
+    let newOdometer = "";
     newOdometer = newOdometer + distance;
     return newOdometer;
   }
+
   let carObj = {
     odometer: number,
-    drive: driveDistance()
+    drive: function driveDistance(distance) {
+      let newOdometer = "";
+      newOdometer = newOdometer + distance;
+      return newOdometer;
+    }
   };
 
   return carObj;

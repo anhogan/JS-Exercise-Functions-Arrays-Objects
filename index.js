@@ -253,7 +253,15 @@ function getModelYears(inventory) {
  * in the same order as they appear in the original inventory.
 */
 function getOlderCars(inventory, number) {
-  /* code here */
+  var oldArray = [];
+
+  for (let i = 0; i < inventory.length; i++) {
+    if(inventory[i].car_year <= number) {
+      oldArray.push(inventory[i].car_year)
+    };
+  };
+
+  return oldArray;
 }
 
 /**
@@ -268,7 +276,15 @@ function getOlderCars(inventory, number) {
  * in the same order as they appear in the original inventory.
 */
 function getGermanCars(inventory) {
-  /* code here */
+  var germanArray = [];
+
+  for (let i = 0; i < inventory.length; i++){
+    if (inventory[i].car_make === "Audi" || inventory[i].car_make === "Mercedes-Benz" || inventory[i].car_make === "Volkswagen" || inventory[i].car_make === "BMW") {
+      germanArray.push(inventory[i].car_make)
+    };
+  };
+
+  return germanArray;
 }
 
 /**

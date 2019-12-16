@@ -335,18 +335,11 @@ const argTimesTwo = (num) => num * 2; // code here!
 */
 
 function carMaker(number) {
-  function driveDistance(distance) {
-    let newOdometer = "";
-    newOdometer = newOdometer + distance;
-    return newOdometer;
-  }
-
   let carObj = {
     odometer: number,
     drive: function driveDistance(distance) {
+      carObj.odometer = this.odometer + distance;
       let newOdometer = number + distance;
-
-      console.log(newOdometer)
       return newOdometer;
     }
   };

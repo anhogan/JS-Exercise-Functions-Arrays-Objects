@@ -40,7 +40,7 @@ function addNumbers(num1, num2) {
  * }
 */
 function makePersonObject(id, name, email) {
-  var newPerson = {
+  let newPerson = {
     id: id,
     name: name,
     email: email
@@ -62,7 +62,7 @@ function makePersonObject(id, name, email) {
  * the returned value should look like `Hello, my name is Leia`.
 */
 function getName(name) {
-  return `"Hello, my name is " + ${this.name}`;
+  return `Hello, my name is  + ${this.name}`;
 }
 
 /**
@@ -79,12 +79,18 @@ function getName(name) {
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
 function makeSmartPerson(name) {
-  /* code here */
+  function sumOfNumbers(num1, num2) {
+    return num1 + num2;
+  }
+
+  let smartPerson = {
+    name: name,
+    sum: sumOfNumbers(),
+    speak: `Hello my name is  + ${this.name}`
+  };
+
+  return smartPerson;
 }
-
-
-
-
 
 /*
 // ⭐️ Example Test Data ⭐️

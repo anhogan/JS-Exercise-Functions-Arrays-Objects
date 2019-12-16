@@ -330,7 +330,7 @@ function carMaker(number) {
   }
   let carObj = {
     odometer: number,
-    drive: driveDistance();
+    drive: driveDistance()
   };
 
   return carObj;

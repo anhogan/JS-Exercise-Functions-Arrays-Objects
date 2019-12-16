@@ -82,15 +82,15 @@ function getName({name}) {
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
 
-function makeSmartPerson({name}) {
-  function sumOfNumbers(num1, num2) {
-    return num1 + num2;
-  }
+// NEED TO FIX THIS!!
 
+function makeSmartPerson(name) {
   let smartPerson = {
     name: name,
-    sum: sumOfNumbers(),
-    speak: `Hello my name is ${name}`
+    sum: function sumOfNumbers(num1, num2) {
+      return num1 + num2;
+    },
+    speak: "Hello, my name is " + name
   };
 
   return smartPerson;
@@ -208,28 +208,25 @@ function getCarInfoById(inventory, number) {
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
 
-// NEED TO FIX THIS!!!
-
 function sortCarInventory(inventory) {
-  let carModel = inventory.car_model;
+  function compare(a, b) {
+    const modelA = a.car_model.toUpperCase();
+    const modelB = b.car_model.toUpperCase();
+  
+    let comparison = 0;
+    if (modelA > modelB) {
+      comparison = 1;
+    } else if (modelA < modelB) {
+      comparison = -1;
+    }
+    return comparison;
+  }
+  
+  inventory.sort(compare);
 
-// inventory.sort(function(a, b) {
-//   var nameA = a.car_model.toUpperCase(); // ignore upper and lowercase
-//   var nameB = b.car_model.toUpperCase(); // ignore upper and lowercase
-//   if (nameA < nameB) {
-//     return -1;
-//   }
-//   if (nameA > nameB) {
-//     return 1;
-//   }
-
-//   // names must be equal
-//   return 0;
-// });
-
-  return carModel;
+  return inventory;
 }
-console.log(sortCarInventory(inventory))
+
 /**
  * ### Challenge `getModelYears`
  * 
@@ -339,7 +336,7 @@ const argTimesTwo = (num) => num * 2; // code here!
 function carMaker(number) {
   var newOdometer = "";
   function driveDistance(distance) {
-    newOdometer = number + distance;
+    newOdometer = newOdometer + distance;
     return newOdometer;
   }
   let carObj = {
